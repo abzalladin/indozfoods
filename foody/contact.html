@@ -46,7 +46,7 @@
           <div class="collapse navbar-collapse" id="navbarsExample05">
             <ul class="navbar-nav ml-auto pl-lg-5 pl-0">
               <li class="nav-item">
-                <a class="nav-link active" href="index.html">Home</a>
+                <a class="nav-link" href="index.html">Home</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="about.html">About</a>
@@ -85,17 +85,33 @@
       class="section pt-5 top-slant-white2 relative-higher bottom-slant-gray"
     >
       <div class="container">
-        <div class="row">
-          <div class="col-lg-6">
-            <form action="#" method="post">
+        <div class="row" id="form-container">
+          <div class="col-lg-6" id="indozForm">
+            <form
+              target="hidden_iframe"
+              onsubmit="submitted=true;"
+              action="https://docs.google.com/forms/d/e/1FAIpQLScvusDXxsUHQhX1V1wEaxJc0-M_x03aXs8rVSs9irmZo17QeA/formResponse"
+              method="POST"
+            >
               <div class="row">
                 <div class="col-md-6 form-group">
-                  <label for="name">Name</label>
-                  <input type="text" id="name" class="form-control" />
+                  <label for="entry.2005620554">Name</label>
+                  <input
+                    type="text"
+                    id="entry.2005620554"
+                    name="entry.2005620554"
+                    class="form-control"
+                    required
+                  />
                 </div>
                 <div class="col-md-6 form-group">
-                  <label for="phone">Phone</label>
-                  <input type="text" id="phone" class="form-control" />
+                  <label for="entry.1166974658">Phone</label>
+                  <input
+                    type="text"
+                    name="entry.1166974658"
+                    id="entry.1166974658"
+                    class="form-control"
+                  />
                 </div>
               </div>
               <div class="row">
@@ -103,19 +119,38 @@
               </div>
               <div class="row">
                 <div class="col-md-12 form-group">
-                  <label for="email">Email</label>
-                  <input type="email" id="email" class="form-control" />
+                  <label for="entry.1065046570">Email</label>
+                  <input
+                    type="email"
+                    id="entry.1065046570"
+                    name="entry.1065046570"
+                    class="form-control"
+                    required
+                  />
                 </div>
               </div>
               <div class="row">
                 <div class="col-md-12 form-group">
-                  <label for="message">Write Message</label>
+                  <label for="entry.1938106162">Subject</label>
+                  <input
+                    type="text"
+                    id="entry.1938106162"
+                    name="entry.1938106162"
+                    class="form-control"
+                    required
+                  />
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-12 form-group">
+                  <label for="entry.839337160">Write Message</label>
                   <textarea
-                    name="message"
-                    id="message"
+                    id="entry.839337160"
+                    name="entry.839337160"
                     class="form-control"
                     cols="30"
                     rows="8"
+                    required
                   ></textarea>
                 </div>
               </div>
@@ -129,6 +164,12 @@
                 </div>
               </div>
             </form>
+            <iframe
+              name="hidden_iframe"
+              id="hidden_iframe"
+              onload="if(submitted){}"
+              style="display: none"
+            ></iframe>
           </div>
 
           <div class="col-lg-6 pl-2 pl-lg-5">
@@ -299,25 +340,25 @@
                 5AM - 10PM
               </p>
             </div>
-            <div>
-              <h3>Contact Info</h3>
-              <ul class="list-unstyled footer-link">
-                <li class="d-block">
-                  <span class="d-block text-black">Address:</span>
-                  <span>34 Street Name, City Name Here, United States</span>
-                </li>
-                <li class="d-block">
-                  <span class="d-block text-black">Phone:</span
-                  ><span>+1 242 4942 290</span>
-                </li>
-                <li class="d-block">
-                  <span class="d-block text-black">Email:</span
-                  ><span>info@yourdomain.com</span>
-                </li>
-              </ul>
-            </div>
           </div>
-          <div class="col-md-3 mb-5">
+              <div class="col-md-3 mb-5">
+                <h3>Contact Info</h3>
+                <ul class="list-unstyled footer-link">
+                  <li class="d-block">
+                    <span class="d-block text-black">Address:</span>
+                    <span>34 Street Name, City Name Here, United States</span>
+                  </li>
+                  <li class="d-block">
+                    <span class="d-block text-black">Phone:</span
+                    ><span>+1 242 4942 290</span>
+                  </li>
+                  <li class="d-block">
+                    <span class="d-block text-black">Email:</span
+                    ><span>info@yourdomain.com</span>
+                  </li>
+                </ul>
+              </div>
+          <!-- <div class="col-md-3 mb-5">
             <h3>Quick Links</h3>
             <ul class="list-unstyled footer-link">
               <li><a href="#">About</a></li>
@@ -325,7 +366,7 @@
               <li><a href="#">Disclaimers</a></li>
               <li><a href="#">Contact</a></li>
             </ul>
-          </div>
+          </div> -->
           <div class="col-md-3"></div>
         </div>
         <div class="row">
@@ -373,6 +414,17 @@
     </div>
 
     <script src="js/jquery-3.2.1.min.js"></script>
+    <script type="text/javascript">
+      var submitted = false;
+    </script>
+    <script type="text/javascript">
+      $("#indozForm").on("submit", function (e) {
+        $("#indozForm").fadeOut(2000);
+        $("#form-container").prepend(
+          "Your Submission has been processed. Thank you!"
+        );
+      });
+    </script>
     <script src="js/popper.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
     <script src="js/owl.carousel.min.js"></script>
